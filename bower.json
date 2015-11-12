@@ -1,0 +1,22 @@
+{
+  "name": "thursday",
+  "authors": [
+    "Daniel Opatich <daniel.opatich@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "~1.7.2",
+    "backbone": "~1.2.3"
+  }
+}
