@@ -3,17 +3,37 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="styles/octicons/octicons.css">
     <link rel="stylesheet" href="styles/main.css">
     <title>Todo</title>
   </head>
 
   <body>
 
+    <section id="todo">
+      <header>
+        <h1>todos</h1>
+        <span class="octicon octicon-plus"></span><input type="text" placeholder="What Needs To Be Done?">
+        <input type="button" name="name" value="X">
+      </header>
+    </section>
 
+<!-- 
+    <script type="text/template" id="listTemplate">
+      <ul>
+      <$ _.forEach(todos, function(todo){
+
+      })
+        <li></li>
+      </ul>
+    </script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
     <script src="app.js"></script>
+    <script src="models/task.js"></script>
+    <script src="views/taskView.js"></script>
+    <script src="collections/tasks.js"></script>
   </body>
 </html>
