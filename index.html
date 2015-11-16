@@ -10,35 +10,42 @@
 
   <body>
 
+    <main>
+
+    </main>
+    
     <section id="todo">
       <header>
         <h1>todos</h1>
         <div class="taskContainer">
           <span class="octicon octicon-plus"></span>
           <input type="text" class="makeTask" placeholder="Write it!">
-          <!-- <input type="button" name="name" value="X"> -->
         </div>
       </header>
     </section>
 
 
+    <script type="text/template" id="inputTemplate">
+      <h1>todos</h1>
+      <div class="taskContainer">
+        <span class="octicon octicon-plus"></span>
+        <input type="text" class="makeTask" placeholder="Write it!" value="">
+      </div>
+    </script>
+
+
     <script type="text/template" id="listTemplate">
-      <ul>
       <$ _.forEach(todos, function(todo){ %>
         <li>
         <span id="taskInput"><%= todo.task %></span>
-          <input type="button" id="deleteBtn" placeholder="X" data-id="<%= todo._id %>">
+          <!-- <input type="button" id="makeTaskDlt" placeholder="X" data-id="<%= todo._id %>"> -->
         </li>
       <% }) %>
-      </ul>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
     <script src="app.js"></script>
-    <script src="models/task.js"></script>
-    <script src="views/taskView.js"></script>
-    <script src="collections/tasks.js"></script>
   </body>
 </html>

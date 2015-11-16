@@ -22,20 +22,22 @@ body {
     content: "";
     display: table; }
 
-#todo {
+#inputTemplate {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  max-width: 100%; }
-  #todo:last-child {
+  max-width: 100%;
+  text-align: center; }
+  #inputTemplate:last-child {
     margin-right: 0; }
-  #todo header {
-    text-align: center; }
-    #todo header h1 {
-      font-size: 50px;
-      margin: 0;
-      margin-top: 20px; }
+  #inputTemplate h1 {
+    font-size: 50px;
+    margin: 0;
+    margin-top: 20px; }
+
+h1 {
+  text-align: center; }
 
 .octicon {
   float: left;
