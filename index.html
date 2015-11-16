@@ -13,20 +13,25 @@
     <section id="todo">
       <header>
         <h1>todos</h1>
-        <span class="octicon octicon-plus"></span><input type="text" placeholder="What Needs To Be Done?">
-        <input type="button" name="name" value="X">
+        <div class="taskContainer">
+          <span class="octicon octicon-plus"></span>
+          <input type="text" class="makeTask" placeholder="Write it!">
+          <!-- <input type="button" name="name" value="X"> -->
+        </div>
       </header>
     </section>
 
-<!-- 
+
     <script type="text/template" id="listTemplate">
       <ul>
-      <$ _.forEach(todos, function(todo){
-
-      })
-        <li></li>
+      <$ _.forEach(todos, function(todo){ %>
+        <li>
+        <span id="taskInput"><%= todo.task %></span>
+          <input type="button" id="deleteBtn" placeholder="X" data-id="<%= todo._id %>">
+        </li>
+      <% }) %>
       </ul>
-    </script> -->
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>

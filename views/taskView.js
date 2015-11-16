@@ -1,7 +1,7 @@
 var App.Views.TaskListItemView = Backbone.View.extend({
-  tagName: 'li',
+  tagName  : 'li',
   className: 'todo',
-  template: _.template($('#listTemplate').html()),
+  template : _.template($('#listTemplate').html()),
 
   // initialize: function() {
   //   this.listenTo(this.model, 'destroy', this.remove)

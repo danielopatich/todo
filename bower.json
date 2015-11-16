@@ -7,7 +7,7 @@
   "main": "",
   "moduleType": [],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/danielopatich/todo",
   "ignore": [
     "**/.*",
     "node_modules",

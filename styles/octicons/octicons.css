@@ -16,7 +16,7 @@
 */
 .octicon, .mega-octicon {
   font: normal normal normal 18px/1 octicons;
-  display: block;
+  display: -webkit-inline-box;
   text-decoration: none;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;

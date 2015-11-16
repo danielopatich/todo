@@ -29,8 +29,8 @@ App.Collections = {};
 //   }.bind(this));
 // }
 
-
-$('document').ready(function(){
-  App.router = new App.Router();
-  Backbone.history.start();
-})
+// 
+// $('document').ready(function(){
+//   App.router = new App.Router();
+//   Backbone.history.start();
+// })
