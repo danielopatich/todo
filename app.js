@@ -50,6 +50,8 @@ var TaskView = Backbone.View.extend({
 
 // SECOND VIEW //
 var TaskItem = Backbone.View.extend({
+  tagName: 'section',
+  className: 'list',
   template: _.template($('#TaskPlacementTemplate').html()),
 
   events: {

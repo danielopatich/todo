@@ -23,6 +23,9 @@ body {
     display: table; }
 
 .todoWrap {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   float: left;
   display: block;
@@ -31,6 +34,10 @@ body {
   margin-left: 8.5298%;
   max-width: 100%;
   text-align: center; }
+  .todoWrap::after {
+    clear: both;
+    content: "";
+    display: table; }
   .todoWrap:last-child {
     margin-right: 0; }
   .todoWrap h1 {
@@ -51,7 +58,8 @@ h1 {
   border: 1px solid #fff;
   margin: 65px;
   color: #fff;
-  background: rgba(33, 33, 33, 0.62); }
+  background: rgba(33, 33, 33, 0.62);
+  margin-top: 10px; }
 
 .octicon {
   float: left;
@@ -70,3 +78,32 @@ h1 {
     background: rgba(149, 211, 217, 0.73);
     color: black;
     padding: 10px; }
+
+.list {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+  margin-top: 30px;
+  padding: 0 40px;
+  margin-bottom: 20px;
+  border: 1px solid; }
+  .list:last-child {
+    margin-right: 0; }
+  .list .content {
+    font-size: 30px; }
+
+@media screen and (max-width: 768px) {
+  .todoWrap {
+    margin-left: 0;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .todoWrap:last-child {
+      margin-right: 0; }
+    .todoWrap input {
+      width: 80%; }
+    .todoWrap h1 {
+      font-size: 50px; } }
