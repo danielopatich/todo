@@ -9,38 +9,23 @@
   </head>
 
   <body>
-
+    <header>
+      <h1>To-Do List</h1>
+    </header>
     <main>
-
     </main>
-    
-    <section id="todo">
-      <header>
-        <h1>todos</h1>
-        <div class="taskContainer">
-          <span class="octicon octicon-plus"></span>
-          <input type="text" class="makeTask" placeholder="Write it!">
-        </div>
-      </header>
-    </section>
 
-
-    <script type="text/template" id="inputTemplate">
-      <h1>todos</h1>
-      <div class="taskContainer">
-        <span class="octicon octicon-plus"></span>
-        <input type="text" class="makeTask" placeholder="Write it!" value="">
-      </div>
+    <script type="text/template" id="TaskTemplate">
+      <div class="todoWrap">
+        <input type="text" class="task" placeholder="Write it down!">
+      <div>
     </script>
 
-
-    <script type="text/template" id="listTemplate">
-      <$ _.forEach(todos, function(todo){ %>
-        <li>
-        <span id="taskInput"><%= todo.task %></span>
-          <!-- <input type="button" id="makeTaskDlt" placeholder="X" data-id="<%= todo._id %>"> -->
-        </li>
-      <% }) %>
+    <script type="text/template" id="TaskPlacementTemplate">
+      <section>
+        <span class="content"><%= content %></span>
+        <span class="del octicon octicon-x"></span>
+      </section>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -16,28 +16,42 @@ body {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  background: #68979B; }
+  background: rgba(149, 211, 217, 0.93); }
   body::after {
     clear: both;
     content: "";
     display: table; }
 
-#inputTemplate {
+.todoWrap {
+  width: 100%;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
   max-width: 100%;
   text-align: center; }
-  #inputTemplate:last-child {
+  .todoWrap:last-child {
     margin-right: 0; }
-  #inputTemplate h1 {
+  .todoWrap h1 {
     font-size: 50px;
     margin: 0;
     margin-top: 20px; }
+  .todoWrap input {
+    background: wheat;
+    padding: 10px;
+    border: 1px solid #fff;
+    width: 50%;
+    height: auto;
+    font-size: 30px; }
 
 h1 {
-  text-align: center; }
+  text-align: center;
+  font-size: 70px;
+  border: 1px solid #fff;
+  margin: 65px;
+  color: #fff;
+  background: rgba(33, 33, 33, 0.62); }
 
 .octicon {
   float: left;
@@ -50,9 +64,9 @@ h1 {
   height: 50px; }
   .taskContainer input {
     float: left;
-    width: 91%;
+    width: 80%;
     margin: -5px 0;
     border-style: none;
-    background: #95D3D9;
+    background: rgba(149, 211, 217, 0.73);
     color: black;
     padding: 10px; }

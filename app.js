@@ -1,95 +1,122 @@
-// MODEL //
+// // MODEL //
 var Task = Backbone.Model.extend({
-  urlRoot: 'https://tiny-starburst.herokuapp.com/collections/danielTODO',
-  idAttribute: '_id',
+    url: 'http://tiny-starburst.herokuapp.com/collections/user'
 });
-// END MODEL //
 
-
-// COLLECTION //
-var TaskList = Backbone.Collection.extend({
-  url: 'https://tiny-starburst.herokuapp.com/collections/danielTODO',
-  Model: Task,
+var ToDo = Backbone.Model.extend({
+  urlRoot: 'http://tiny-starburst.herokuapp.com/collections/user',
+  idAttribute: '_id'
 });
-// END COLLECTION //
+// // END MODEL //
 
-
+// // COLLECTION //
+var ToDos = Backbone.Collection.extend({
+  model: ToDo,
+  url: 'http://tiny-starburst.herokuapp.com/collections/user',
+});
+// // END COLLECTION //
 // FIRST VIEW //
-var TaskBox = Backbone.View.extend({
-  template: _.template($('#inputTemplate').html()),
-
+var TaskView = Backbone.View.extend({
+  template: _.template($('#TaskTemplate').html()),
   events: {
-    'keypress .makeTask' : 'makeTaskEnter',
+    'keypress .task' : 'handleEnter'
   },
 
   send: function() {
-    var makeTask = this.$('.makeTask').val();
-    var taskInput = new Task({
-      'task': task,
+    var content = $('.task').val();
+    var todoInput = new ToDo({
+      content: content,
     });
-    taskInput.save(null, {
-      success: function() {
-      }
+    todoInput.save();
+    this.collection.add(todoInput, {
+      at: [0]
     });
-    taskInput.save();
   },
 
-  makeTaskEnter: function(event) {
+  handleEnter: function(event) {
     if (event.keyCode === 13) {
-      var task = $('.makeTask').val();
-      $('.makeTask').val('');
-      this.collection.create({
-        todo: {
-          task: task
-        }
-      });
-      console.log(this.collection);
+      event.preventDefault();
+      this.send();
     }
   },
 
   render: function() {
-    var inputTemplate = $('#inputTemplate').html();
-    this.$el.html(inputTemplate);
+    var TaskTemplate = $('#TaskTemplate').html();
+    this.$el.html(TaskTemplate);
     return this;
   }
 });
 // END FIRST VIEW //
 
-
 // SECOND VIEW //
-var TaskListItemView = Backbone.View.extend({
-  template : _.template($('#listTemplate').html()),
+var TaskItem = Backbone.View.extend({
+  template: _.template($('#TaskPlacementTemplate').html()),
 
   events: {
-    'click #makeTaskDlt'    : 'makeTaskDelete'
+    'click .del': 'handleDelete'
   },
 
+  handleDelete: function(){
+    var del = this.$('.del');
+    // alert('This todo has been deleted.');
+    event.preventDefault();
+    this.model.destroy();
+  },
+
+  render: function(){
+    var data = this.model.toJSON();
+    this.$el.html(this.template(data));
+    return this;
+  }
+});
+// END SECOND VIEW //
+
+// THIRD VIEW //
+var TaskList = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'fetch sync', this.render);
     this.listenTo(this.collection, 'destroy', this.remove);
   },
 
-  render: function() {
-    var display = this;
+  render: function(){
+    var view = this;
     this.$el.html('');
     this.collection.each(function(model){
-      var taskBox = new TaskBox({
-        task: task
-        });
-        taskBox.render();
-        display.$el.append(taskBox.el);
+      var taskItem = new TaskItem({
+        model: model
+      });
+    taskItem.render();
+      view.$el.append(taskItem.el);
+    });
+  }
+});
+// END THIRD VIEW //
+
+// ROUTER //
+  var Router = Backbone.Router.extend({
+    routes: {
+      '': 'homeRoute'
+    },
+
+    homeRoute: function(){
+      // var home    = new home();
+      var toDos  = new ToDos();
+      var todoList = new TaskList({
+        collection: toDos
+      });
+      var Task = new TaskView({
+        collection: toDos
+      });
+      Task.render();
+      $('main').append(Task.el);
+      toDos.fetch({
+        success: function(){
+        $('main').append(todoList.el);
+        }
       });
     }
-  },
+  });
+// END ROUTER //
 
-  makeTaskDelete: function(task) {
-    this.collection.destroy(task);
-  },
-});
-// END SECOND VIEW //
-
-
-var taskStuff = new TaskListItemView();
-var TaskList = new Tasks();
-taskStuff.render();
-$('main').append(taskStuff.el);
+var router = new Router();
+Backbone.history.start();

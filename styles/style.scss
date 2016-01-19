@@ -12,11 +12,13 @@
 
 body {
   @include outer-container;
-  background: #68979B;
+  background: rgba(149, 211, 217, 0.93);
 }
 
-#inputTemplate {
-  @include span-columns(12);
+.todoWrap {
+  width: 100%;
+  @include span-columns(10);
+  @include shift(1);
   max-width: 100%;
   text-align: center;
   h1 {
@@ -24,10 +26,23 @@ body {
     margin: 0;
     margin-top: 20px;
   }
+  input {
+    background: wheat;
+    padding: 10px;
+    border: 1px solid #fff;
+    width: 50%;
+    height: auto;
+    font-size: 30px;
+  }
 }
 
 h1 {
   text-align: center;
+  font-size: 70px;
+  border: 1px solid #fff;
+  margin: 65px;
+  color: #fff;
+  background: rgba(33, 33, 33, 0.62);
 }
 
 .octicon {
@@ -42,10 +57,10 @@ h1 {
   height: 50px;
   input {
     float: left;
-    width: 91%;
+    width: 80%;
     margin: -5px 0;
     border-style: none;
-    background: #95D3D9;
+    background: rgba(149, 211, 217, 0.73);
     color: black;
     padding: 10px;
   }
